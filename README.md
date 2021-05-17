@@ -11,7 +11,7 @@ Because of the COVID-19 pandemic, Prof. Block restructured the final project of 
 
 ## Developing the System
 While Prof. Block signed off on the original design as feasible, since the second part of this project was done as part of a different course it didn't use the exact same design. Prof. Block upgraded to using the [TMS320F28379D microcontroller](https://github.com/monk200/Mechatronics_with_TMS320F28379D), added a variety of peripherals to the PCB, and simplified the body of the Segbot. For the sake of being thorough, the points below include information on each stage of the design process and how they've changed:  
-* Parts list: This document lists the essential parts used in the new Segbot design and how they compare to the specs of the previously chosen parts.  
+* [Parts list](https://github.com/monk200/Segbot/blob/main/Parts_Lists/Revised_Parts_List.md): This document lists the essential parts used in the new Segbot design and how they compare to the specs of the previously chosen parts.  
 * Wiring configuration: This image is again a color-coded wiring schematic to show a quick layout of how the new components are connected.  
 * [PCB design](https://github.com/monk200/Segbot/tree/main/Wiring/Reworked%20EagleCAD%20Files): This folder contains the new EagleCAD files for the PCB. As stated earlier, this is a much more complicated design because a lot of peripherals were added to allow the board to be used for exploring other applications.  
 * [CAD model](https://github.com/monk200/Segbot/tree/main/Frame/Reworked%20Frame%20Design): A much simpler design, this design is only two 3D-printed legs to be attached to the PCB itself.  
