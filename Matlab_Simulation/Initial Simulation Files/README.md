@@ -37,4 +37,4 @@ Unfortunately, I was not able to find stable poles for the system even after hou
 
 Prof. Block was working with me throughout each step of the design process and approved of each of my finalized choices up to just before working with the simulation. This makes me confident that despite some potentially non-optimal choices, this Segbot design is still capable of working in real life and with some minor improvements. Below is a link to a video of the simulation when it was as stabilized as I managed to get it. I did not end up saving the poles for this behavior because they still needed a notable amount of changes to be viable.  
 
-[![Initial Simulation](https://youtu.be/ORlbtnldfrQ)
+[![Initial Simulation](https://i9.ytimg.com/vi/ORlbtnldfrQ/mq2.jpg?sqp=CIjKi4UG&rs=AOn4CLDKZvF3BxbWQiSWQOUupkB6kFlMeg)](https://youtu.be/ORlbtnldfrQ)
