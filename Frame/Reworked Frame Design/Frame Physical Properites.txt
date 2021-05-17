@@ -1,0 +1,38 @@
+General
+	Part Number	support_d9
+	Part Name	support_d9
+	Description
+	Material Name	ABS Plastic
+
+Physical
+	Mass	2.134E+04 g
+	Volume	2.014E+07 mm^3
+	Density	0.001 g / mm^3
+	Area	1.491E+06 mm^2
+	World X,Y,Z	0.00 mm, 0.00 mm, 0.00 mm
+	Center of Mass	150.00 mm, 319.389 mm, 255.088 mm
+	Bounding Box
+		Length	300.00 mm
+		Width	917.676 mm
+		Height	538.481 mm
+	Moment of Inertia at Center of Mass   (g mm^2)
+		Ixx	1.920E+09
+		Ixy	-272.328
+		Ixz	177.828
+		Iyx	-272.328
+		Iyy	6.772E+08
+		Iyz	5.740E+08
+		Izx	177.828
+		Izy	5.740E+08
+		Izz	1.792E+09
+	Moment of Inertia at Origin   (g mm^2)
+		Ixx	5.486E+09
+		Ixy	-1.023E+09
+		Ixz	-8.167E+08
+		Iyx	-1.023E+09
+		Iyy	2.546E+09
+		Iyz	-1.165E+09
+		Izx	-8.167E+08
+		Izy	-1.165E+09
+		Izz	4.449E+09
+
