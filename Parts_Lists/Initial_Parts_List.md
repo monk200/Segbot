@@ -55,6 +55,11 @@ Since I had free access to a 3D printer while in school, the body of the Segbot 
 
 Cost: $0
 
+## Other Parts
+A few parts needed for the assembly were provided by Prof. Block without detailed explanation. The first is the LS7366R Quadrature Counter, which is used to communicate with the MSP430's SPI. The other part is a crystal oscillator whose pinout was provided but specific part number was not. The connections between these parts and the controller's SPI peripheral can be seen on the last page of [this link](http://coecsl.ece.illinois.edu/ge423/LS7366CodeHandout.pdf). The first three pages contain the code needed to initialize the SPI on the microcontroller.  
+
+[LS7366R Datasheet](https://lsicsi.com/datasheets/LS7366R.pdf)  
+
 ## Sources
 https://www.powerelectric.com/motor-resources/motors101/what-are-dc-motors-usually-gear-motors  
 https://www.engineersgarage.com/tech-articles/choosing-motor-for-robots/  
