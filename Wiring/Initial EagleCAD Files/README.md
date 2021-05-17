@@ -11,5 +11,7 @@ The only custom part that I needed to create was the MPU-6050 ([MPU6050_MODULE i
 Running my design through the free file checker produced no major issues and it automatically fixed a recurring line width error I made. The specific error message output was "Insufficient Silkscreen Line Width (1543 violations)," and, as I noted, the file checker automatically fixed the error.  
 
 ## EagleCAD Design
-<p align="center"><img src="https://github.com/monk200/Segbot/blob/main/Wiring/Initial%20EagleCAD%20Files/brd%20picture.png" alt="BRD" width="800"/></p>  
-<p align="center"><img src="https://github.com/monk200/Segbot/blob/main/Wiring/Initial%20EagleCAD%20Files/sch%20picture.png" alt="SCH" width="800"/></p>  
+<p align="center"><img src="https://github.com/monk200/Segbot/blob/main/Wiring/Initial%20EagleCAD%20Files/brd%20picture.PNG" alt="BRD" width="800"/></p>  
+
+<p align="center"><img src="https://github.com/monk200/Segbot/blob/main/Wiring/Initial%20EagleCAD%20Files/sch%20picture.PNG" alt="SCH" width="800"/></p>  
+
