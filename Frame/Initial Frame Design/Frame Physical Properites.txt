@@ -1,0 +1,38 @@
+General
+	Part Number	segbot_frame
+	Part Name	segbot_frame
+	Description
+	Material Name	ABS Plastic
+
+Physical
+	Mass	1535.286 g
+	Volume	1448.383 cm^3
+	Density	1.06 g / cm^3
+	Area	4128.659 cm^2
+	World X,Y,Z	0.00 cm, 0.00 cm, 0.00 cm
+	Center of Mass	-10.00 cm, 13.805 cm, 3.897 cm
+	Bounding Box
+		Length	20.00 cm
+		Width	30.00 cm
+		Height	23.167 cm
+	Moment of Inertia at Center of Mass   (g cm^2)
+		Ixx	1.722E+05
+		Ixy	1.301
+		Ixz	-2337.748
+		Iyx	1.301
+		Iyy	1.103E+05
+		Iyz	-3416.982
+		Izx	-2337.748
+		Izy	-3416.982
+		Izz	2.086E+05
+	Moment of Inertia at Origin   (g cm^2)
+		Ixx	4.881E+05
+		Ixy	2.119E+05
+		Ixz	5.749E+04
+		Iyx	2.119E+05
+		Iyy	2.872E+05
+		Iyz	-8.601E+04
+		Izx	5.749E+04
+		Izy	-8.601E+04
+		Izz	6.547E+05
+
