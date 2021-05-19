@@ -16,4 +16,4 @@ For the next step of simulating the Segbot in Matlab, the parameters of the phys
 * Body Height: 0.29 m
 * Distance of the Center of Mass from the Wheel Axis: 11.86 m  
 
-More calculations and their equations will be explained in the Matlab Model section.  
+More calculations and their equations will be explained in the [Matlab Model](https://github.com/monk200/Segbot/tree/main/Matlab_Simulation/Initial%20Simulation%20Files) section.  
