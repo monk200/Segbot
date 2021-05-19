@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>segbot</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder</name>
+			<triggers>full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.ti.ccstudio.core.ccsNature</nature>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>driverlib.lib</name>
+			<type>1</type>
+			<location>F:/TERRAmain/Documents/School/6 - Super Senior 2/Me461/Labrepo-1/C2000Ware_3_02_00_00_F28379D/driverlib/f2837xd/driverlib/ccs/Debug/driverlib.lib</location>
+		</link>
+	</linkedResources>
+	<variableList>
+		<variable>
+			<name>C2000WARE_COMMON_INCLUDE</name>
+			<value>file:/F:/TERRAmain/Documents/School/6%20-%20Super%20Senior%202/Me461/Labrepo-1/C2000Ware_3_02_00_00_F28379D/device_support/f2837xd/common/include</value>
+		</variable>
+		<variable>
+			<name>C2000WARE_DLIB_ROOT</name>
+			<value>file:/F:/TERRAmain/Documents/School/6%20-%20Super%20Senior%202/Me461/Labrepo-1/C2000Ware_3_02_00_00_F28379D/driverlib/f2837xd/driverlib</value>
+		</variable>
+		<variable>
+			<name>C2000WARE_HEADERS_INCLUDE</name>
+			<value>file:/F:/TERRAmain/Documents/School/6%20-%20Super%20Senior%202/Me461/Labrepo-1/C2000Ware_3_02_00_00_F28379D/device_support/f2837xd/headers/include</value>
+		</variable>
+	</variableList>
+</projectDescription>

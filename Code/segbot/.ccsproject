@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?ccsproject version="1.0"?>
+<projectOptions>
+	<ccsVersion value="10.1.0"/>
+	<deviceVariant value="TMS320C28XX.TMS320F28379D"/>
+	<deviceFamily value="C2000"/>
+	<deviceEndianness value="little"/>
+	<codegenToolVersion value="20.2.2.LTS"/>
+	<isElfFormat value="false"/>
+	<rts value="libc.a"/>
+	<createSlaveProjects value=""/>
+	<templateProperties value="id=labstarter.projectspec.labstarter"/>
+	<origin value="F:\TERRAmain\Documents\School\6 - Super Senior 2\Me461\Labrepo-1\C2000Ware_3_02_00_00_F28379D\device_support\f2837xd\examples\cpu1\labstarter\cpu01\ccs\labstarter.projectspec"/>
+	<filesToOpen value=""/>
+</projectOptions>
