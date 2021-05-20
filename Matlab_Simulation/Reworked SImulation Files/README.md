@@ -38,6 +38,7 @@ The current poles set in the Matlab file are stable for the system, and the runn
 [![Stable Simulation](https://i9.ytimg.com/vi/3cc0C4fP93k/mq2.jpg?sqp=COivmoUG&rs=AOn4CLCJ8H2jLm_IbXASKFX4jyyljRI18w)](https://youtu.be/3cc0C4fP93k)  
 
 ## Further Analysis
+### Increasing Responsiveness
 Further analysis on the simulation can be done to understand how the system works and how it behaves with different poles. First I tried setting the K gains to be noticably more responsive than the stable gains. Setting <code>K = [-34.3159, -3.6375, -3.3290]</code> produces poles at [-446.4162, -8.9051, -10]'. Below again are plots and a link to a video of the simulation running. The Psi_body plot already shows how there is a much more dramatic adjustment of the Segbot's tilt, but it still is able to stabalize. The portions of Theta Wheel where the Segbot is adjusting its position are much faster, also meaning that the distance doesn't need to be as large to create a counter-balancing force. The biggest issue with these gains can be seen in the motor voltage plot. The control input actually saturates very slightly at 6V, the maximum voltage the motor simulation can handle. (At this point it is worthwhile to note that the simulation motor voltage is scaled down from a 10V maximum to 6V) There is also an overshoot into the negative voltages to handle the initial control effort overshooting the amount of speed needed.  
 
 ![More Responsive Poles Plots](https://github.com/monk200/Segbot/blob/main/Matlab_Simulation/Reworked%20SImulation%20Files/Manipulating%20Poles/more%20responsive.png)  
@@ -50,12 +51,14 @@ Increasing the responsiveness of the system even more can show even more dramati
 
 [![Too Responsive Simulation](https://i9.ytimg.com/vi/qGNAavwwsLA/mq2.jpg?sqp=CJSymoUG&rs=AOn4CLBHmMkdnnnPPcbu0SqsS15x4eH_rw)](https://youtu.be/qGNAavwwsLA)  
 
+### Decreasing Responsiveness
 As a last excersise with manipulating the poles of the system, next I made the system not responsive enough. I set <code>K = [-47.2416, -13.2226, -18.4865]</code> which made the poles [-80, -50, -60]'. The plots for this system show an insane amount of oscillation. In fact, in the plots there is a point just before the 3 second mark where it just barely starts to approach its balancing point and then it recieves the second tap which adds enough energy that the controller can't keep the Segbot from tipping over entirely. Because of how dramatic the oscillations are, the motor voltage saturates again trying to rescue it from its inevitable fate.  
 
 ![Not Responsive Poles Plots](https://github.com/monk200/Segbot/blob/main/Matlab_Simulation/Reworked%20SImulation%20Files/Manipulating%20Poles/not%20responsive%20enough.png)  
 
 [![Not Responsive Simulation](https://i9.ytimg.com/vi/98DRiGnAHTE/mq2.jpg?sqp=CJSymoUG&rs=AOn4CLAJN01t3IVaV5EQRfSDflwHPqQEmQ)](https://youtu.be/98DRiGnAHTE)  
 
+### Manipulating Segbot Motion
 Returning back to using the stable poles, the simulation can still be changed to explore other behaviors of the controller. If the "Finger Pushing At Top of Body (Newtons)" block is changed to have a 50% pulse width and an amplitude of 0.4 N, it will simulate pushing the Segbot gently for 2 seconds. The video below shows how the Segbot pushes back on the "finger" (the force is applied from the left) to stay balanced. This makes sense because it needs to counteract the force being applied to stay upright.  
 
 [![Pushing the Segbot](https://i9.ytimg.com/vi/trDw0ImDjyA/mq2.jpg?sqp=CJSymoUG&rs=AOn4CLDj4GD_oKIvsqj5oNDacKADWgLnjw)](https://youtu.be/trDw0ImDjyA)  
