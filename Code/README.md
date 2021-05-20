@@ -1,0 +1,11 @@
+# Programming
+This folder finally contains the [code](https://github.com/monk200/Segbot/tree/main/Code/segbot) used to program the TMS320F28379D on Prof. Block's Segbot design to balance and turn accoring to user input through the keyboard. The [code walkthrough](https://github.com/monk200/Segbot/blob/main/Code/code_walkthrough.md) goes through the steps taken to set up the controller and its peripherals as well as a deep focus on the [control algorithms](https://github.com/monk200/Segbot/blob/main/Code/code_walkthrough.md#use-software-interrupt-to-implement-control-algorithms) used.  
+
+## What the Code Does
+As far as the actual code and running it on the Segbot, the only file I personally wrote code in was [segbot_main.c](https://github.com/monk200/Segbot/blob/main/Code/segbot/segbot_main.c), so that's where you can find all of the logic and initializations I've done. It's fairly well commented and organized but the [code walkthrough](https://github.com/monk200/Segbot/blob/main/Code/code_walkthrough.md) includes detailed descriptions, datasheets, and line numbers to guide other people through it. In its current state, the code is set up to balance and turn the Segbot while it is plugged into the computer and being controlled by keyboard inputs. If the microcontroller is flashed and disconnected from the computer, the Segbot will be able to balance but it won't turn (unless you set a constant turn rate in the code, in which case it will continuously spin at that rate).  
+
+## Operating the Segbot
+To get the Segbot started, rest it on its legs so the wheels are off the ground and the body is still. Turn the Segbot on by popping the batteries in and then leave it alone to calibrate the sensors for about 4 seconds (a blue LED will be blinking while the sensors calibrate). After this, turn the motors on with the switch and place the Segbot vaguely upright. From there, it will balance itself and be ready to control. Make sure to always turn the motor switch back off before restarting the Segbot.  
+
+## Demo Video
+[![Controlling Segbot](https://i9.ytimg.com/vi/ZbytxEKrEEE/mq2.jpg?sqp=CIykmoUG&rs=AOn4CLBqXdg6dqMmESX1mFsb2rz_ZUEcKA&retry=5)](https://youtu.be/ZbytxEKrEEE)  
