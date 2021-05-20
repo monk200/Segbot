@@ -25,6 +25,7 @@ Below are links to several videos demonstrating different portions of the Segbot
 
 ### Controlling the Segbot with the Keyboard
 [![Controlling Segbot](https://i9.ytimg.com/vi/ZbytxEKrEEE/mq2.jpg?sqp=CIykmoUG&rs=AOn4CLBqXdg6dqMmESX1mFsb2rz_ZUEcKA&retry=5)](https://youtu.be/ZbytxEKrEEE)  
+[Github Video Link](https://github.com/monk200/Segbot/blob/main/Working%20Demo%20Video.mp4)  
 
 ### Balancing Segbot
 [![Balancing Segbot](https://i9.ytimg.com/vi/_FPlLJUeUD4/mq2.jpg?sqp=CICPmoUG&rs=AOn4CLCNEwNHM3WrOVnD_qe3GA9vNIED5g)](https://youtu.be/_FPlLJUeUD4)  
