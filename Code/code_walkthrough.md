@@ -63,6 +63,41 @@ Lines [534-569](https://github.com/monk200/Segbot/blob/675fc0f092b4d83fd8ebe73bd
 ### Balancing control
 Lines [584-597](https://github.com/monk200/Segbot/blob/675fc0f092b4d83fd8ebe73bdf923763511bc55d/Code/segbot/segbot_main.c#L584)  
 
+>The balancing control starts by applying a low-pass filter in discrete time to estimate the velocity of each wheel. Magnetic encoders have a low amplitude and the noise in the position variable is amplified when differentiated, so blocking out higher frequencies lead to more accurate estimates of the velocity. In my implementation, I applied a low-pass filter with a cutoff frequency of 125 rad/s, the bode plot of which can be seen below. It it worthwhile to note here that the cutoff frequency is a tunable parameter and the Segbot performance can be changed by changing it. Also below is a snippet of the Matlab code used to take the derivative of the filter and then convert it to discrete time using the Tustin rule (aka bilinear transformation aka trapezoidal rule) at a 4ms sample rate. This final equation, <code>vel_pos</code>, can be converted so that the <code>z</code> is to the power of -1, making it refer to a unit delay. This is necessary in real-time application because at any given moment we only know the past states. The final form of the equation can be seen in the code on [lines 592 and 593](https://github.com/monk200/Segbot/blob/675fc0f092b4d83fd8ebe73bdf923763511bc55d/Code/segbot/segbot_main.c#L592).  
 
+<p align="center">
+  <img src="https://github.com/monk200/Segbot/blob/main/Code/Figures/wheelVelFilter%20Bode.PNG" alt="Bode Plot" width="500"/>
+  <img src="https://github.com/monk200/Segbot/blob/main/Code/Figures/wheelVelFilter%20discrete.PNG" alt="Matlab Calculations" width="400"/>
+  <img src="https://github.com/monk200/Segbot/blob/main/Code/Figures/wheelVelFilter%20expanded.PNG" alt="Expanded Equation" width="400"/>
+</p>  
 
-### Turning control
+>After estimating the current velocity of the left and right wheels, the actual balancing control needs to be added. For this, I used a full state feedback control where x<sub>1</sub> is tilt, x<sub>2</sub> is tilt rate, and x<sub>3</sub> is the average of the two (now filtered) wheel velocities. This portion of the equations were derived by [Yorihisa Yamamoto's Segobt paper](https://www.mathworks.com/matlabcentral/fileexchange/19147-nxtway-gs-self-balancing-two-wheeled-robot-controller-design) and can be found in the code for the [Matlab model](https://github.com/monk200/Segbot/tree/main/Matlab_Simulation) used previously. Ultimately, the control effort u = -K<sub>1</sub>x<sub>1</sub> - K<sub>2</sub>x<sub>2</sub> - K<sub>3</sub>x<sub>3</sub>, where each variable K is a tunable gain. The implementation of this in the code is on [line 596](https://github.com/monk200/Segbot/blob/675fc0f092b4d83fd8ebe73bdf923763511bc55d/Code/segbot/segbot_main.c#L596). As far as tuning the gains, the [Matlab simulation](https://github.com/monk200/Segbot/tree/main/Matlab_Simulation/Reworked%20SImulation%20Files) was used as a starting point (and those gains need to be scaled up to to real-world Segbot) but because of discrepencies between the simulated model and the real model, the values may need to be tuned further on the real robot. For my robot, the gains K<sub>1</sub> = -30, K<sub>2</sub> = -2.8, K<sub>3</sub> = -1.0 worked sufficiently but can still be improved to reduce the small oscillations happening in the video below (which are slightly caused by the cable dragging anyway). The gains I had used in my simulation ([-34.3159, -3.6375, -3.3290]) also balanced but seemed to be slightly less stable. The parameter that actually seemed to have more of an impact when tuned was [the angle the body of the Segbot tries to balance at](https://github.com/monk200/Segbot/blob/675fc0f092b4d83fd8ebe73bdf923763511bc55d/Code/segbot/segbot_main.c#L77).  
+
+[![Balancing Segbot](https://i9.ytimg.com/vi/_FPlLJUeUD4/mq2.jpg?sqp=CICPmoUG&rs=AOn4CLCNEwNHM3WrOVnD_qe3GA9vNIED5g)](https://youtu.be/_FPlLJUeUD4)  
+
+### Steering control
+Lines [600-622](https://github.com/monk200/Segbot/blob/675fc0f092b4d83fd8ebe73bdf923763511bc55d/Code/segbot/segbot_main.c#L600)  
+
+>The process of starting the steering control starts similarly to calculating wheel velocity. The steering control essentially commands the Segbot to turn at a certain rate by aiming to a achieve a certain difference between the left and right wheel velocities. To do this, I started by using a low-pass filter with a cutoff frequency of 250 rad/s and converting it to discrete time at a 4ms sample rate again. The steps from the last filter are taken and shown below, to finally produce the code in [line 602](https://github.com/monk200/Segbot/blob/675fc0f092b4d83fd8ebe73bdf923763511bc55d/Code/segbot/segbot_main.c#L602).  
+
+<p align="center">
+  <img src="https://github.com/monk200/Segbot/blob/main/Code/Figures/velDifFilter%20Bode.PNG" alt="Bode Plot" width="500"/>
+  <img src="https://github.com/monk200/Segbot/blob/main/Code/Figures/velDifFilter%20discrete.PNG" alt="Matlab Calculations" width="400"/>
+  <img src="https://github.com/monk200/Segbot/blob/main/Code/Figures/velDifFilter%20expanded.PNG" alt="Expanded Equation" width="400"/>
+</p>  
+
+>Next, the error between the desired angle to turn to and the difference between the two wheel positions in radians is integrated using the trapezoidal rule ([line 605](https://github.com/monk200/Segbot/blob/675fc0f092b4d83fd8ebe73bdf923763511bc55d/Code/segbot/segbot_main.c#L605)). Doing these calculations produces the necessary variables to perform PID control of the turn. The turn command ends up being K<sub>p</sub> * turnError + K<sub>i</sub> * turnErrorIntegral - K<sub>d</sub> * diffInWheelVels ([line 606](https://github.com/monk200/Segbot/blob/675fc0f092b4d83fd8ebe73bdf923763511bc55d/Code/segbot/segbot_main.c#L606)).  
+
+>Before applying the turn command determined by the PID algorithm, it needs to both account for integral windup and be saturated so that it doesn't overpower the balance control. Integral windup happens when for some reason the error term in the algorithm keeps growing, often caused when the motor can't meet the desired control effort. We demonstrated this in the lab by holding onto one of the wheels and then when you release it, it goes extremely fast because it is trying to correct for a huge percieved error. A more stable system doesn't attempt to correct itself so aggressively because it can damage the motor or throw the Segbot off balance. In this case, the code will stop the error integral from accumulating if the turn command is near its maximum value. When the turn command is near the maximum value, there is no reason to keep accumulating the error integral because the error is already right at the maximum error the Segbot can account for. As far as saturting the control, the code keeps the turn command within [-4, 4] so that it never overpowers the balancing control that ranges from [-10, 10]. A block diagram of the turning algorithm can be seen below: 
+
+<p align="center"><img src="https://github.com/monk200/Segbot/blob/main/Code/Figures/Turn%20Control%20Block%20Diagram.PNG" alt="Turn PID" width="1000"/></p>  
+
+>Finally, on [lines 614-622](https://github.com/monk200/Segbot/blob/675fc0f092b4d83fd8ebe73bdf923763511bc55d/Code/segbot/segbot_main.c#L614), the balacing control effort, turning control effort, and direction commands are combined, saturated to be between -10 and 10, and sent to the left and right motor control functions. The last portion of the software interrupt just updates all of the past states for the next time the software enters the interrupt to calculate a new control effort. A video of me controlling the Segbot's motion using keyboard input can be seen below:  
+
+[![Controlling Segbot](https://i9.ytimg.com/vi/ZbytxEKrEEE/mq2.jpg?sqp=CIykmoUG&rs=AOn4CLBqXdg6dqMmESX1mFsb2rz_ZUEcKA&retry=5)](https://youtu.be/ZbytxEKrEEE)  
+
+## Sources
+https://doc.synapticon.com/software/42/motion_control/advanced_control_options/filtering/low-pass-filter/index.html  
+https://www.electrical4u.com/cutoff-frequency/  
+https://www.allaboutcircuits.com/technical-articles/deriving-and-plotting-a-low-pass-transfer-function-on-matlab/  
+https://control.com/technical-articles/intergral-windup-method-in-pid-control/  
