@@ -16,9 +16,9 @@ While Prof. Block signed off on the original design as feasible, since the secon
 * [PCB design](https://github.com/monk200/Segbot/tree/main/Wiring/Reworked%20EagleCAD%20Files): This folder contains the new EagleCAD files for the PCB. As stated earlier, this is a much more complicated design because a lot of peripherals were added to allow the board to be used for exploring other applications.  
 * [CAD model](https://github.com/monk200/Segbot/tree/main/Frame/Reworked%20Frame%20Design): A much simpler design, this design is only two 3D-printed legs to be attached to the PCB itself.  
 
-With a new physical design, the Matblab model needed to be redone but this time since the physical parts were present the tuning was much more reliable. Throughout the Computer Control of Mechanical Systems course, the new microcontroller was explolred and experimented with. Near the end of the semester, I programmed the board to implement control algorithms to solve the inverted pendulum problem and control the robot's motion. The links below lead to details on each step of this process:  
+With a new physical design, the Matlab model needed to be redone but this time since the physical parts were present the tuning was much more reliable. Throughout the [Computer Control of Mechanical Systems](https://github.com/monk200/Mechatronics_with_TMS320F28379D) course, the new microcontroller was explolred and experimented with. Near the end of the semester, I programmed the board to implement control algorithms to solve the inverted pendulum problem and control the robot's motion. The links below lead to details on each step of this process:  
 * [Matlab model](https://github.com/monk200/Segbot/tree/main/Matlab_Simulation/Reworked%20SImulation%20Files): Using the same simulation as before but new, more accurate, parameters, I manually tuned the Segbot to balance.  
-* Programming: This link goes to the code for the project with extensive details on the processes used and how to set it up on the hardware.  
+* [Programming](https://github.com/monk200/Segbot/tree/main/Code): This link goes to the code for the project with extensive details on the processes used and how to set it up on the hardware.  
 
 ## Final Product
 Below are links to several videos demonstrating different portions of the Segbot's performance:  
