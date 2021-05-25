@@ -97,6 +97,8 @@ Lines [600-622](https://github.com/monk200/Segbot/blob/675fc0f092b4d83fd8ebe73bd
 [![Controlling Segbot](https://i9.ytimg.com/vi/ZbytxEKrEEE/mq2.jpg?sqp=CIykmoUG&rs=AOn4CLBqXdg6dqMmESX1mFsb2rz_ZUEcKA&retry=5)](https://youtu.be/ZbytxEKrEEE)  
 
 ## Sources
+https://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/  
+https://towardsdatascience.com/kalman-filter-an-algorithm-for-making-sense-from-the-insights-of-various-sensors-fused-together-ddf67597f35e  
 https://doc.synapticon.com/software/42/motion_control/advanced_control_options/filtering/low-pass-filter/index.html  
 https://www.electrical4u.com/cutoff-frequency/  
 https://www.allaboutcircuits.com/technical-articles/deriving-and-plotting-a-low-pass-transfer-function-on-matlab/  
