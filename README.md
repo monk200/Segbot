@@ -1,5 +1,5 @@
 # Segbot
-<img align="right" height="500" src="https://github.com/monk200/Segbot/blob/main/Demo%20Picture.PNG">
+<img align="right" height="350" src="https://github.com/monk200/Segbot/blob/main/Demo%20Picture.PNG">
 
 This repository contains files such as code, CAD files, Matlab simulations, and brainstorming documents from my work designing and developing a two-wheeled balancing robot. The project can be split into two main parts: designing the system and developing the real-world version of the system. The original design was done in my [Mechatronics](http://coecsl.ece.illinois.edu/ge423/) course as a final project for Spring 2020 but the real robot was built and programmed in the course [Computer Control of Mechanical Systems](http://coecsl.ece.illinois.edu/me461/) in Fall 2020. Both courses were led by UIUC Prof. Dan Block, the university's Control Systems Lab Manager. Prof. Block created a guide to building a Segbot at [this link](http://coecsl.ece.illinois.edu/segbot/segbot.html) and his guidance and expertise was absolutely essential in all steps of this project.  
 
