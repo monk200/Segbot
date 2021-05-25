@@ -542,15 +542,15 @@ __interrupt void SPIB_isr(void) {
         float tiltrate = (gyroXreading*PI)/180.0; // rad/s
         float pred_tilt, z, y, S;
         // Prediction Step
-        pred_tilt = kalman_tilt + T*tiltrate;
-        pred_P = kalman_P + Q;
+        pred_tilt = kalman_tilt + T*tiltrate;       // new prediction = old prediction + dt*gyro
+        pred_P = kalman_P + Q;      // new uncertainty = old uncertainty + environmental uncertainty
         // Update Step
-        z = -accelZreading;
-        y = z - pred_tilt;
-        S = pred_P + R;
-        kalman_K = pred_P/S;
-        kalman_tilt = pred_tilt + kalman_K*y;
-        kalman_P = (1 - kalman_K)*pred_P;
+        z = -accelZreading;     // laggy accel
+        y = z - pred_tilt;      // prediction error
+        S = pred_P + R;     // covariance = new uncertainty + sensor noise uncertainty
+        kalman_K = pred_P/S;        // kalman gain, decrases if measurements match the predicted state
+        kalman_tilt = pred_tilt + kalman_K*y;       // new prediction
+        kalman_P = (1 - kalman_K)*pred_P;       // new uncertainty
         SpibNumCalls++;
         // Kalman Filter used
         tilt_array[SpibNumCalls] = kalman_tilt;
